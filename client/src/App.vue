@@ -19,7 +19,7 @@ export default {
     ws.onerror = (err) => {
       console.log('_error');
       console.log(err);
-    };
+     };
     ws.onclose = () => {
       console.log('_close');
     };
