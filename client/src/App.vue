@@ -9,20 +9,19 @@ export default {
   name: 'app',
 
   created() {
-    const ws = new WebSocket('ws://localhost:8000/ws');
-    ws.onopen = () => {
-      ws.send('你好 服务器');
-    };
-    ws.onmessage = (e) => {
-      console.log('收到服务器的数据', e.data);
-    };
-    ws.onerror = (err) => {
-      console.log('_error');
-      console.log(err);
-     };
-    ws.onclose = () => {
-      console.log('_close');
-    };
+    console.log(this.socket);
+    this.socket.onopen = this.onOpen.bind(this);
+    this.socket.onmessage = this.onMessage.bind(this);
+  },
+
+  methods: {
+    onOpen() {
+      console.log('app vue connected: ');
+      this.socket.send('hello server');
+    },
+    onMessage(e) {
+      console.log('receive data from server: ', e.data);
+    },
   },
 };
 </script>

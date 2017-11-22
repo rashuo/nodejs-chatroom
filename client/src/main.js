@@ -3,6 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import Socket from './websocket/socket';
+
+Vue.use(new Socket('ws://localhost:8000/ws'));
 
 Vue.config.productionTip = false;
 
