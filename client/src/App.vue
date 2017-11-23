@@ -10,18 +10,12 @@ export default {
 
   created() {
     console.log(this.socket);
-    this.socket.onopen = this.onOpen.bind(this);
-    this.socket.onmessage = this.onMessage.bind(this);
+    this.socket.on('text', (data) => {
+      console.log('收到服务端的数据: ', data);
+    });
   },
 
   methods: {
-    onOpen() {
-      console.log('app vue connected: ');
-      this.socket.send('hello server');
-    },
-    onMessage(e) {
-      console.log('receive data from server: ', e.data);
-    },
   },
 };
 </script>

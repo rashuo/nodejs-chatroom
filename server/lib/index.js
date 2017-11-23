@@ -17,7 +17,10 @@ app.get('/', (req, res) => {
 app.ws('/ws', (ws, req) => {
     ws.on('message', (msg) => {
         console.log('服务器收到数据: ', msg);
-        ws.send('我收到数据啦,谢谢');
+        ws.send(JSON.stringify({
+            type: 'text',
+            data: '你好呀，客户端'
+        }));
     })
     console.log('socket', req.testing)
 })
