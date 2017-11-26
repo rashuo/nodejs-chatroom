@@ -5,28 +5,33 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-  name: 'app',
 
-  created() {
-    console.log(this.socket);
-    this.socket.on('text', (data) => {
-      console.log('收到服务端的数据: ', data);
-    });
-  },
+  export default {
+    name: 'app',
 
-  methods: {
-  },
-};
+    data() {
+      return {
+      };
+    },
+
+    created() {
+    },
+
+    methods: {
+    },
+  };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html, body, #app {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>

@@ -9,7 +9,6 @@ export default class Socket {
     this.socket = new WebSocket(address);
     EventDispatcher.attach(this);
 
-    this.socket.onopen = this.onOpen.bind(this);
     this.socket.onmessage = this.onMessage.bind(this);
     // this.socket.onclose = this.onClose.bind(this);
     // this.socket.onerror = this.onError.bind(this);
@@ -31,8 +30,8 @@ export default class Socket {
     this.emit(data.type, data.data);
   }
 
-  onOpen() {
-    console.log('app connected: ');
-    this.socket.send('hello server');
+
+  send(data) {
+    this.socket.send(data);
   }
 }
