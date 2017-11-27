@@ -5,7 +5,7 @@ import App from './App';
 import router from './router';
 import Socket from './websocket/socket';
 
-Vue.use(new Socket('ws://localhost:8000/ws'));
+Vue.use(new Socket('ws://192.168.19.137:8000/ws'));
 
 Vue.config.productionTip = false;
 
